@@ -14,6 +14,7 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import cw from "../assets/cw.jpeg";
 
+
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -31,7 +32,7 @@ export default function MenuAppBar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }} >
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <img
@@ -41,7 +42,7 @@ export default function MenuAppBar() {
             height="25px"
             style={{ cursor: "pointer" }}
           />
-     
+
             <Typography
               style={{ cursor: "pointer" }}
               variant="h5"
@@ -49,7 +50,7 @@ export default function MenuAppBar() {
               sx={{
                 fontFamily: "Girassol",
                 flexGrow: 1,
-                border: 2
+                border: 2,
               }}
             >
               {"-------------<SY/>BLOG-------------"}
