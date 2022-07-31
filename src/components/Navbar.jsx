@@ -14,12 +14,11 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import cw from "../assets/cw.jpeg";
 
-
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [login, setLogin] = React.useState(false);
-
+  // const [login, setLogin] = React.useState(false);
+  const currentUser = { displayName: "selçuk yılmaz" };
   const navigate = useNavigate();
 
   const handleMenu = (event) => {
@@ -29,19 +28,19 @@ export default function MenuAppBar() {
     // navigate("/login");
     setAnchorEl(null);
   };
-  const handleProfile=()=>{
+  const handleProfile = () => {
     navigate("profile");
-     setAnchorEl(null);
+    setAnchorEl(null);
   };
-  const handleLogin=()=>{
+  const handleLogin = () => {
     navigate("login");
     setAnchorEl(null);
   };
-  const handleNew=()=>{
+  const handleNew = () => {
     navigate("newBlog");
     setAnchorEl(null);
   };
-  const handleRegister=()=>{
+  const handleRegister = () => {
     navigate("register");
     setAnchorEl(null);
   };
@@ -58,18 +57,18 @@ export default function MenuAppBar() {
             style={{ cursor: "pointer" }}
           />
 
-            <Typography
-              style={{ cursor: "pointer" }}
-              variant="h5"
-              component="div"
-              sx={{
-                fontFamily: "Girassol",
-                flexGrow: 1,
-                border: 2,
-              }}
-            >
-              {"-------------<SY/>BLOG-------------"}
-            </Typography>
+          <Typography
+            style={{ cursor: "pointer" }}
+            variant="h5"
+            component="div"
+            sx={{
+              fontFamily: "Girassol",
+              flexGrow: 1,
+              border: 2,
+            }}
+          >
+            {"-------------<SY/>BLOG-------------"}
+          </Typography>
 
           {auth && (
             <div>
@@ -98,15 +97,16 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                {login && (
+                {!currentUser && (
                   <>
+                    <MenuItem>{currentUser.displayName}</MenuItem>
                     <MenuItem onClick={handleProfile}>Profile</MenuItem>
                     <MenuItem onClick={handleNew}>New</MenuItem>
                     <MenuItem onClick={handleLogin}>Logout</MenuItem>
                   </>
                 )}
 
-                {!login && (
+                {currentUser && (
                   <>
                     <MenuItem onClick={handleLogin}>Login</MenuItem>
                     <MenuItem onClick={handleRegister}>Register</MenuItem>
