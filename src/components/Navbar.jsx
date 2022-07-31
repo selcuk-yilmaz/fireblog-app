@@ -18,16 +18,31 @@ import cw from "../assets/cw.jpeg";
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [login, setLogin] = React.useState(true);
+  const [login, setLogin] = React.useState(false);
 
   const navigate = useNavigate();
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
-    navigate("/login");
+    // navigate("/login");
+    setAnchorEl(null);
+  };
+  const handleProfile=()=>{
+    navigate("profile");
+     setAnchorEl(null);
+  };
+  const handleLogin=()=>{
+    navigate("login");
+    setAnchorEl(null);
+  };
+  const handleNew=()=>{
+    navigate("newBlog");
+    setAnchorEl(null);
+  };
+  const handleRegister=()=>{
+    navigate("register");
     setAnchorEl(null);
   };
 
@@ -85,16 +100,16 @@ export default function MenuAppBar() {
               >
                 {login && (
                   <>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>New</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleProfile}>Profile</MenuItem>
+                    <MenuItem onClick={handleNew}>New</MenuItem>
+                    <MenuItem onClick={handleLogin}>Logout</MenuItem>
                   </>
                 )}
 
                 {!login && (
                   <>
-                    <MenuItem onClick={handleClose}>Login</MenuItem>
-                    <MenuItem onClick={handleClose}>Register</MenuItem>
+                    <MenuItem onClick={handleLogin}>Login</MenuItem>
+                    <MenuItem onClick={handleRegister}>Register</MenuItem>
                   </>
                 )}
               </Menu>
