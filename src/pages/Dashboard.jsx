@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderText, HomeImg, ImgDiv, flexDiv } from "./Dashboard.style";
+import {ImgDiv } from "./Dashboard.style";
 import BlogCard from "../components/BlogCard";
 
 import { Container, Grid } from "@mui/material";

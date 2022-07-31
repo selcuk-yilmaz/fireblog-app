@@ -4,18 +4,16 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import Switch from "@mui/material/Switch";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
+
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import cw from "../assets/cw.jpeg";
 
 export default function MenuAppBar() {
-  const [auth, setAuth] = React.useState(true);
+  // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   // const [login, setLogin] = React.useState(false);
   const currentUser = { displayName: "selçuk yılmaz" };
@@ -70,7 +68,7 @@ export default function MenuAppBar() {
             {"-------------<SY/>BLOG-------------"}
           </Typography>
 
-          {auth && (
+          {/* {auth && ( */}
             <div>
               <IconButton
                 size="large"
@@ -114,7 +112,7 @@ export default function MenuAppBar() {
                 )}
               </Menu>
             </div>
-          )}
+          {/* )} */}
         </Toolbar>
       </AppBar>
     </Box>
