@@ -69,49 +69,49 @@ export default function MenuAppBar() {
           </Typography>
 
           {/* {auth && ( */}
-            <div>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                {!currentUser && (
-                  <>
-                    <MenuItem>{currentUser.displayName}</MenuItem>
-                    <MenuItem onClick={handleProfile}>Profile</MenuItem>
-                    <MenuItem onClick={handleNew}>New</MenuItem>
-                    <MenuItem onClick={handleLogin}>Logout</MenuItem>
-                  </>
-                )}
+          <div>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {currentUser && (
+                <>
+                  <MenuItem>{currentUser.displayName}</MenuItem>
+                  <MenuItem onClick={handleProfile}>Profile</MenuItem>
+                  <MenuItem onClick={handleNew}>New</MenuItem>
+                  <MenuItem onClick={handleLogin}>Logout</MenuItem>
+                </>
+              )}
 
-                {currentUser && (
-                  <>
-                    <MenuItem onClick={handleLogin}>Login</MenuItem>
-                    <MenuItem onClick={handleRegister}>Register</MenuItem>
-                  </>
-                )}
-              </Menu>
-            </div>
+              {!currentUser && (
+                <>
+                  <MenuItem onClick={handleLogin}>Login</MenuItem>
+                  <MenuItem onClick={handleRegister}>Register</MenuItem>
+                </>
+              )}
+            </Menu>
+          </div>
           {/* )} */}
         </Toolbar>
       </AppBar>
