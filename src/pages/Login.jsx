@@ -6,15 +6,18 @@ import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 import { FaLock } from "react-icons/fa";
 import { useState } from "react";
+import { login } from "../helpers/firebase";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  
-const handleSubmit=(e)=>{
-e.preventDafault(e);
+  const navigate = useNavigate();
 
-}
+  const handleSubmit = (e) => {
+    e.preventDafault(e);
+    login(email, password, navigate);
+  };
   return (
     <div>
       <Container maxWidth="sm" sx={{ mt: "3rem", textAlign: "center" }}>
@@ -33,7 +36,10 @@ e.preventDafault(e);
           Login
         </Typography>
 
-        <Box onChange={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        <Box
+          onChange={handleSubmit}
+          sx={{ display: "flex", flexDirection: "column", gap: 4 }}
+        >
           <TextField
             label="Email"
             name="email"

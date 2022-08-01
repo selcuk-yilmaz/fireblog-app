@@ -1,13 +1,16 @@
 import "./App.css";
 import AppRouter from "./router/AppRouter";
 import BlogContextProvider from "./contexts/BlogContext";
+import AuthContextProvider from "./contexts/AuthContext";
 
 function App() {
   return (
     <>
-      <BlogContextProvider>
-        <AppRouter />
-      </BlogContextProvider>
+      <AuthContextProvider>
+        <BlogContextProvider>
+          <AppRouter />
+        </BlogContextProvider>
+      </AuthContextProvider>
     </>
   );
 }

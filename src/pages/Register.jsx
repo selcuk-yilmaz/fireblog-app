@@ -7,18 +7,19 @@ import Avatar from "@mui/material/Avatar";
 import { FaLock } from "react-icons/fa";
 import { useState } from "react";
 import { createUser } from "../helpers/firebase";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const displayName = `${fullName}`;
-    createUser(email, password);
+    createUser(email, password, navigate);
   };
-  console.log(email);
+
   return (
     <div>
       <Container maxWidth="sm" sx={{ mt: "3rem", textAlign: "center" }}>
@@ -37,10 +38,7 @@ const LoginPage = () => {
           Register
         </Typography>
 
-        <Box
-          onSubmit={handleSubmit}
-          sx={{ display: "flex", flexDirection: "column", gap: 4 }}
-        >
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <TextField
             label="Full Name"
             name="fullName"
@@ -65,7 +63,12 @@ const LoginPage = () => {
             variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit" variant="contained" size="large">
+          <Button
+            onClick={handleSubmit}
+            type="submit"
+            variant="contained"
+            size="large"
+          >
             Submit
           </Button>
         </Box>

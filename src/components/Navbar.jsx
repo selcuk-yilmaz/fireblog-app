@@ -4,19 +4,17 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-
 import AccountCircle from "@mui/icons-material/AccountCircle";
-
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+
 import { useNavigate } from "react-router-dom";
 import cw from "../assets/cw.jpeg";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function MenuAppBar() {
-  // const [auth, setAuth] = React.useState(true);
+  const { currentUser } = React.useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  // const [login, setLogin] = React.useState(false);
-  const currentUser = { displayName: "selçuk yılmaz" };
   const navigate = useNavigate();
 
   const handleMenu = (event) => {
@@ -95,7 +93,7 @@ export default function MenuAppBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              {!currentUser && (
+              {currentUser && (
                 <>
                   <MenuItem>{currentUser.displayName}</MenuItem>
                   <MenuItem onClick={handleProfile}>Profile</MenuItem>
@@ -104,7 +102,7 @@ export default function MenuAppBar() {
                 </>
               )}
 
-              {currentUser && (
+              {!currentUser && (
                 <>
                   <MenuItem onClick={handleLogin}>Login</MenuItem>
                   <MenuItem onClick={handleRegister}>Register</MenuItem>
@@ -112,7 +110,6 @@ export default function MenuAppBar() {
               )}
             </Menu>
           </div>
-          {/* )} */}
         </Toolbar>
       </AppBar>
     </Box>
