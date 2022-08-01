@@ -44,7 +44,7 @@ export default function MenuAppBar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ height: "10vh", flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <img
@@ -95,7 +95,7 @@ export default function MenuAppBar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              {currentUser && (
+              {!currentUser && (
                 <>
                   <MenuItem>{currentUser.displayName}</MenuItem>
                   <MenuItem onClick={handleProfile}>Profile</MenuItem>
@@ -104,7 +104,7 @@ export default function MenuAppBar() {
                 </>
               )}
 
-              {!currentUser && (
+              {currentUser && (
                 <>
                   <MenuItem onClick={handleLogin}>Login</MenuItem>
                   <MenuItem onClick={handleRegister}>Register</MenuItem>

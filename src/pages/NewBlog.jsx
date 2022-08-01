@@ -1,3 +1,4 @@
+import blok from "../assets/blok.png";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -49,12 +50,12 @@ export default function NewBlog() {
       style={{
         backgroundImage: "url(https://source.unsplash.com/random)",
         backgroundRepeat: "no-repeat",
-        backgroundColor: (t) =>
-          t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
+        // backgroundColor: (t) =>
+        //   t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        height: "91vh",
+        height: "89vh",
       }}
     >
       <div
@@ -63,7 +64,7 @@ export default function NewBlog() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "80vh",
+          height: "90vh",
         }}
       >
         <ThemeProvider theme={theme}>
@@ -83,19 +84,25 @@ export default function NewBlog() {
               <Box
                 component="form"
                 /* onSubmit={(e)=>handleFormSubmit(e)} */ noValidate
-                sx={{ mt: 1 }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mt: 1,
+                }}
               >
                 <Typography
                   component="h1"
                   variant="h5"
                   sx={{
-                    color: "darkslategray",
-                    letterSpacing: "3px",
+                    // color: "darkslategray",
+
                     fontFamily: "fantasy",
-                    marginTop: "10px",
+                    marginTop: "5px",
                   }}
                 >
-                  New Blog
+                  <img src={blok} alt="blok" />
                 </Typography>
                 <TextField
                   margin="normal"
@@ -126,7 +133,7 @@ export default function NewBlog() {
                 <TextField
                   placeholder="Content"
                   multiline
-                  rows={8}
+                  rows={4}
                   margin="normal"
                   required
                   fullWidth

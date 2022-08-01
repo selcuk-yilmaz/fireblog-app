@@ -6,16 +6,19 @@ import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 import { FaLock } from "react-icons/fa";
 import { useState } from "react";
+import { createUser } from "../helpers/firebase";
 
 const LoginPage = () => {
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit=(e)=>{
-e.preventDefault();
-const displayName=`${fullName}`
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const displayName = `${fullName}`;
+    createUser(email, password);
+  };
+  console.log(email);
   return (
     <div>
       <Container maxWidth="sm" sx={{ mt: "3rem", textAlign: "center" }}>
@@ -31,10 +34,13 @@ const displayName=`${fullName}`
           <FaLock size="40" />
         </Avatar>
         <Typography variant="h4" align="center" mb={4} color="primary.light">
-          Login
+          Register
         </Typography>
 
-        <Box onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        <Box
+          onSubmit={handleSubmit}
+          sx={{ display: "flex", flexDirection: "column", gap: 4 }}
+        >
           <TextField
             label="Full Name"
             name="fullName"
